@@ -1,1 +1,19 @@
 <h1><%=  @bouchtroue.name_profile %></h1>
+
+
+<%= simple_form_for @bouchtroue do |f| %>
+  <div class="form-inputs">
+    <%= f.input :name_profile %>
+    <%= f.input :specialty %>
+    <%= f.input :description %>
+    <%= f.input :status %>
+    <%= f.input :available_start %>
+    <%= f.input :available_end %>
+    <%= f.input :hour_price %>
+    <%= f.input :location %>
+  </div>
+
+  <div class="form-actions mb-5">
+    <%= f.button :submit, class: "btn btn-primary" %>
+  </div>
+<% end %>
