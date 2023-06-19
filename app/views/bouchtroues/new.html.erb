@@ -1,2 +1,15 @@
-<h1>Bouchtroues#new</h1>
-<p>Find me in app/views/bouchtroues/new.html.erb</p>
+<h1>Creer un profil de Bouchtroue</h1>
+
+<%= simple_form_for @bouchtroue do |f| %>
+  <div class="form-inputs">
+    <%= f.input :name_profile %>
+    <%= f.input :specialty %>
+    <%= f.input :description %>
+    <%= f.input :status %>
+    <%= f.input :location %>
+  </div>
+
+  <div class="form-actions mb-5">
+    <%= f.button :submit, class: "btn btn-primary" %>
+  </div>
+<% end %>

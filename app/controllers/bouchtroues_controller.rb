@@ -36,6 +36,6 @@ class BouchtrouesController < ApplicationController
   end
 
   def bouchtroue_params
-    params.require(:bouchtroue).permit(:name, :address, :rating)
+    params.require(:bouchtroue).permit(:name_profile, :specialty, :description, :status, :location)
   end
 end

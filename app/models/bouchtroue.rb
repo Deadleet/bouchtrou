@@ -1,5 +1,5 @@
 class Bouchtroue < ApplicationRecord
-  validates :name, presence: true
+  validates :name_profile, presence: true
   validates :specialty, presence: true
   validates :description, presence: true
   # validates :rating, presence: true
