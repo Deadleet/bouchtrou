@@ -1,0 +1,2 @@
+class Bouchtroue < ApplicationRecord
+end
