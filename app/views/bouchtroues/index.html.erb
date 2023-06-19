@@ -1,6 +1,8 @@
 <h1>Bouchtroues#index</h1>
-<p>Find me in app/views/bouchtroues/index.html.erb</p>
-
-<% @bouchtroues.each do |bouchtroue| %>
-<%= bouchtroue.name_profile %>
-<% end %>
+<ul class = "list-group">
+  <% @bouchtroues.each do |bouchtroue| %>
+    <li class="list-group-item">
+      <%= bouchtroue.name_profile %>
+    </li>
+  <% end %>
+</ul>
