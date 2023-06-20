@@ -8,6 +8,10 @@
         <%= bouchtroue.location %> est pour me décrire :
         <%= bouchtroue.description %>
       </li>
+
+      <li class="list-group-item">
+        <%= bouchtroue.user.email %>
+      </li>
       <%= link_to "en savoir plus", bouchtroue_path(bouchtroue), class: "btn btn-primary mt-2 mb-2" %>
     <% end %>
   </div>
