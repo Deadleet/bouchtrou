@@ -16,7 +16,13 @@
 
   <div>
     <%= link_to "retour", bouchtroues_path, class: "btn btn-primary mt-2 mb-2" %>
+    <% if @bouchtroue.user.email == current_user.email %>
     <%= link_to "edit", edit_bouchtroue_path(@bouchtroue), class: "btn btn-primary mt-2 mb-2" %>
+    <% else %>
+    <% end %>
+    <% if @bouchtroue.user.email != current_user.email %>
     <%= link_to "reserver", bouchtroues_path, class: "btn btn-primary mt-2 mb-2" %>
+    <% else %>
+    <% end %>
   </div>
 </div>
