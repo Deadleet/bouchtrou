@@ -1,8 +1,22 @@
+<div class = "container text-center">
 <h1>Mon profil : <%= @bouchtroue.name_profile %></h1>
-<p>Spécialité : <%= @bouchtroue.specialty %></p>
-<p>Description : <%= @bouchtroue.description %></p>
-<p>status : <%= @bouchtroue.status %></p>
-<p>dispo du : <%= @bouchtroue.available_start %></p>
-<p>au : <%= @bouchtroue.available_end %></p>
-<p>prix : <%= @bouchtroue.hour_price %> € / heure</p>
-<p>zone : <%= @bouchtroue.location %></p>
+</div>
+
+
+<div class = "card container d-flex justify-content-between">
+  <div>
+    <p>Spécialité : <%= @bouchtroue.specialty %></p>
+    <p>Description : <%= @bouchtroue.description %></p>
+    <p>status : <%= @bouchtroue.status %></p>
+    <p>dispo du : <%= @bouchtroue.available_start %></p>
+    <p>au : <%= @bouchtroue.available_end %></p>
+    <p>prix : <%= @bouchtroue.hour_price %> € / heure</p>
+    <p>zone : <%= @bouchtroue.location %></p>
+  </div>
+
+  <div>
+    <%= link_to "retour", bouchtroues_path, class: "btn btn-primary mt-2 mb-2" %>
+    <%= link_to "edit", edit_bouchtroue_path(@bouchtroue), class: "btn btn-primary mt-2 mb-2" %>
+    <%= link_to "reserver", bouchtroues_path, class: "btn btn-primary mt-2 mb-2" %>
+  </div>
+</div>
