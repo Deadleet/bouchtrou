@@ -13,6 +13,7 @@ class BouchtrouesController < ApplicationController
 
   def create
     @bouchtroue = Bouchtroue.new(bouchtroue_params)
+    @bouchtroue.user = current_user
     @bouchtroue.save!
     redirect_to bouchtroue_path(@bouchtroue)
   end
