@@ -5,7 +5,7 @@ class Bouchtroue < ApplicationRecord
   # validates :rating, presence: true
   validates :status, presence: true, default: false
   validates :location, presence: true
-  validates :hour_price, presence: true
-  validates :available_start, presence: true
-  validates :available_end, presence: true
+  validates :hour_price
+  validates :available_start
+  validates :available_end
 end
