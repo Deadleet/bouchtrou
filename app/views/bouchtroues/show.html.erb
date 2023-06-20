@@ -1,21 +1,32 @@
+<div class = "fixed-top">
+<%= link_to "revenir", bouchtroues_path, class: "btn btn-primary mt-2 mb-2 " %>
+</div>
 <div class = "container text-center">
 <h1>Mon profil : <%= @bouchtroue.name_profile %></h1>
 </div>
 
 
-<div class = "card container d-flex justify-content-between">
+
+<%# condition vert ou %>
+<% if @bouchtroue.status == "libre" %>
+  <div class = "card container d-flex justify-content-between bg-success bg-opacity-50">
+<% elsif @bouchtroue.status == "occupe"%>
+  <div class = "card container d-flex justify-content-between bg-danger bg-opacity-50">
+<% else %>
+  <div class = "card container d-flex justify-content-between bg-warning bg-opacity-50">
+<% end %>
+<%#  qi l  condition ne marche pas alors effacer + de commenter le ligne du dessous%>
+<%# <div class = "card container d-flex justify-content-between bg-success"> %>
   <div>
     <p>Spécialité : <%= @bouchtroue.specialty %></p>
     <p>Description : <%= @bouchtroue.description %></p>
-    <p>status : <%= @bouchtroue.status %></p>
-    <p>dispo du : <%= @bouchtroue.available_start %></p>
-    <p>au : <%= @bouchtroue.available_end %></p>
-    <p>prix : <%= @bouchtroue.hour_price %> € / heure</p>
-    <p>zone : <%= @bouchtroue.location %></p>
+    <p>Status : <%= @bouchtroue.status %>. Mes dispo du moment : <%= @bouchtroue.available_start %> au <%= @bouchtroue.available_end %></p>
+
+    <p>Prix : <%= @bouchtroue.hour_price %> € / heure</p>
+    <p>Localisation du moment : <%= @bouchtroue.location %></p>
   </div>
 
   <div>
-    <%= link_to "retour", bouchtroues_path, class: "btn btn-primary mt-2 mb-2" %>
     <% if @bouchtroue.user.email == current_user.email %>
     <%= link_to "edit", edit_bouchtroue_path(@bouchtroue), class: "btn btn-primary mt-2 mb-2" %>
     <% else %>
