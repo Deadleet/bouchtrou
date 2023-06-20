@@ -1,8 +1,16 @@
-<h1>Bouchtroues#index</h1>
-<ul class = "list-group">
-  <% @bouchtroues.each do |bouchtroue| %>
-    <li class="list-group-item">
-      <%= bouchtroue.name_profile %>
-    </li>
-  <% end %>
+<h1 class = "container">Nos Bouchtroues disponibles</h1>
+<ul class = "list-group container ">
+  <div>
+    <% @bouchtroues.each do |bouchtroue| %>
+      <li class="list-group-item">Salut, je m'appelle
+        <%= bouchtroue.name_profile%> je suis
+        <%= bouchtroue.specialty %> je viens de
+        <%= bouchtroue.location %> est pour me décrire :
+        <%= bouchtroue.description %>
+      </li>
+      <%= link_to "en savoir plus", bouchtroue_path(bouchtroue), class: "btn btn-primary mt-2 mb-2" %>
+    <% end %>
+  </div>
 </ul>
+
+<%= link_to "revenir", root_path, class: "btn btn-primary mt-2 mb-2" %>
