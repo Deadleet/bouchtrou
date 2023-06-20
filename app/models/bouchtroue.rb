@@ -1,4 +1,7 @@
 class Bouchtroue < ApplicationRecord
+  belongs_to :user
+
+
   validates :name_profile, presence: true
   validates :specialty, presence: true
   validates :description, presence: true
