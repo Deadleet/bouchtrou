@@ -2,35 +2,29 @@
 <%= link_to "revenir", root_path, class: "btn btn-primary mt-2 mb-2 " %>
 </div>
 <h1 class = "container">Nos Bouchtrous disponibles</h1>
-
 <ul class = "list-group container">
   <div>
     <% @bouchtroues.each do |bouchtroue| %>
       <% if bouchtroue.user.email != current_user.email %>
-        <div class="border border-primary my-2 rounded">
-          <li class="list-group-item">Je suis
-            <%= bouchtroue.name_profile%> ! Spécialité :
-            <%= bouchtroue.specialty %>. Tu peux me retrouver sur :
-            <%= bouchtroue.location %>.
+        <div class = "border border-primary my-3">
+          <li class="list-group-item">
+            Je suis <%= bouchtroue.name_profile%> !
+            Ma spécialité : <%= bouchtroue.specialty %>
+            Ma zone du moment <%= bouchtroue.location %>
           </li>
 
           <li class="list-group-item">
-            Description : <%= bouchtroue.description %>
-          </li>
-
-          <li class="list-group-item">
-            Mes dispos : <%= bouchtroue.available_start %> au <%=bouchtroue.available_end %>
+            Ma description : <%= bouchtroue.description %>
           </li>
 
           <li class="list-group-item">
             <%= bouchtroue.user.email %>
           </li>
-            <div class = "d-flex card container d-flex justify-content-start">
-              <%= link_to "en savoir plus", bouchtroue_path(bouchtroue), class: "btn btn-primary mt-2 mb-2 pl-2" %>
-              <% else %>
-              <% end %>
-            </div>
+
+          <%= link_to "en savoir plus", bouchtroue_path(bouchtroue), class: "btn btn-primary mt-2 mb-2" %>
         </div>
+        <% else %>
+        <% end %>
     <% end %>
   </div>
 </ul>
