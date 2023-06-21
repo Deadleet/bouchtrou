@@ -2,7 +2,6 @@
 <%= link_to "revenir", root_path, class: "btn btn-primary mt-2 mb-2 " %>
 </div>
 <h1 class = "container">Nos Bouchtrous disponibles</h1>
-
 <ul class = "list-group container">
   <div>
     <% @bouchtroues.each do |bouchtroue| %>
@@ -13,11 +12,9 @@
             Ma spécialité : <%= bouchtroue.specialty %>
             Ma zone du moment <%= bouchtroue.location %>
           </li>
-
           <li class="list-group-item">
             Ma description : <%= bouchtroue.description %>
           </li>
-
           <li class="list-group-item">
             <%= bouchtroue.user.email %>
           </li>
