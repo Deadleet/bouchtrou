@@ -56,9 +56,9 @@
 
 
 <div class="container">
-  <div class="row justify-content-center">
+  <div class="row justify-content-between">
     <div class="col-12 col-lg-6">
-      <h1>HOME</h1>
+      <h1>Si tu n'as pas d'amis, tu es au bon endroit !</h1>
       <br>
       <%= link_to "Trouver un bouchtrou", bouchtroues_path, class: "btn btn-outline-info" %>
       <%= link_to "Ajouter un bouchtrou", new_bouchtroue_path, class: "btn btn-outline-info" %>
@@ -80,9 +80,10 @@
                 <div class="card-body p-4">
                   <div class="d-flex text-black">
                     <div class="flex-shrink-0">
-                      <img src="https://res.cloudinary.com/dahxc5uh6/image/upload/v1687349417/yaw0uu5nshwxuko1hdgk.jpg"
+                      <%= cl_image_tag bouchtroue.photo.key, width: 180, crop: :fill %>
+                      <%# <img src="https://res.cloudinary.com/dahxc5uh6/image/upload/v1687349417/yaw0uu5nshwxuko1hdgk.jpg"
                         alt="Generic placeholder image" class="img-fluid"
-                        style="width: 180px; border-radius: 10px;">
+                        style="width: 180px; border-radius: 10px;"> %>
                     </div>
 
                     <div class="flex-grow-1 ms-3">
