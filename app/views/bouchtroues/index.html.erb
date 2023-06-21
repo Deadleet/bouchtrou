@@ -1,16 +1,37 @@
-<h1 class = "container">Nos Bouchtroues disponibles</h1>
-<ul class = "list-group container ">
+<div class = "fixed-top">
+<%= link_to "revenir", root_path, class: "btn btn-primary mt-2 mb-2 " %>
+</div>
+<h1 class = "container">Nos Bouchtrous disponibles</h1>
+<ul class = "list-group container">
   <div>
     <% @bouchtroues.each do |bouchtroue| %>
-      <li class="list-group-item">Salut, je m'appelle
-        <%= bouchtroue.name_profile%> je suis
-        <%= bouchtroue.specialty %> je viens de
-        <%= bouchtroue.location %> est pour me décrire :
-        <%= bouchtroue.description %>
-      </li>
-      <%= link_to "en savoir plus", bouchtroue_path(bouchtroue), class: "btn btn-primary mt-2 mb-2" %>
+      <% if bouchtroue.user.email != current_user.email %>
+        <div class = "border border-primary my-3">
+          <li class="list-group-item">
+            Je suis <%= bouchtroue.name_profile%> !
+            Ma spécialité : <%= bouchtroue.specialty %>
+            Ma zone du moment <%= bouchtroue.location %>
+          </li>
+
+          <li class="list-group-item">
+            Ma description : <%= bouchtroue.description %>
+          </li>
+
+          <li class="list-group-item">
+            <%= bouchtroue.user.email %>
+          </li>
+<%# condition %>
+          <% if bouchtroue.status == "libre" %>
+            <%= link_to "en savoir plus", bouchtroue_path(bouchtroue), class: "btn btn-success mt-2 mb-2" %>
+          <% elsif bouchtroue.status == "occupe" %>
+            <%= link_to "en savoir plus", bouchtroue_path(bouchtroue), class: "btn btn-danger mt-2 mb-2" %>
+          <% else %>
+            <%= link_to "en savoir plus", bouchtroue_path(bouchtroue), class: "btn btn-warning mt-2 mb-2" %>
+          <% end %>
+<%# fin de condition %>
+        </div>
+        <% else %>
+        <% end %>
     <% end %>
   </div>
 </ul>
-
-<%= link_to "revenir", root_path, class: "btn btn-primary mt-2 mb-2" %>
