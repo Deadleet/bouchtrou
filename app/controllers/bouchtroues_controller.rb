@@ -1,5 +1,5 @@
 class BouchtrouesController < ApplicationController
-  before_action :set_bouchtroue, only: [:show, :edit, :update, :delete]
+  before_action :set_bouchtroue, only: [:show, :edit, :update, :destroy]
 
   def index
     @bouchtroues = Bouchtroue.all
@@ -27,7 +27,7 @@ class BouchtrouesController < ApplicationController
 
   def destroy
     @bouchtroue.destroy
-    redirect_to bouchtroues_path, status: :see_other
+    redirect_to root_path, status: :see_other
   end
 
   private
