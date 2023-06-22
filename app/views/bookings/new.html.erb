@@ -1,0 +1,22 @@
+<h1>Bookings#new</h1>
+<p>Find me in app/views/bookings/new.html.erb</p>
+
+<div class = "container">
+
+<h1 class = "container">Creer un profil de Bouchtroue</h1>
+
+<%= simple_form_for ([@bouchtroue, @booking]) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :date_start %>
+    <%= f.input :event_time %>
+    <%= f.input :location %>
+  </div>
+
+  <div class="form-actions mb-5">
+    <%= f.button :submit, class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+</div>
