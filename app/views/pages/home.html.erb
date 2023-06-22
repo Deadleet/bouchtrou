@@ -65,23 +65,8 @@
 </div>
 
 
-  <% @bookings.each do |booking| %>
-    <% if booking.user.email == current_user.email %>
-      <%= booking.name %>
-      <%= booking.description %>
-      <%= booking.date_start %>
-      <%= booking.location %>
-    <% else %>
-    <% end %>
-  <% end %>
-
-<div id="my-profile" class ="mt-5">
-  <h2>Mes reservations externes</h2>
-  <%= current_user.email %>
-</div>
-
-  <% @bookings.each do |booking| %>
-    <% if current_user.id == booking.bouchtroue.user_id %>
+    <% @bookings.each do |booking| %>
+    <% if booking.user.email == current_user.email || current_user.id == booking.bouchtroue.user_id %>
       <%= booking.name %>
       <%= booking.description %>
       <%= booking.date_start %>
