@@ -10,7 +10,60 @@
     </div>
   </div>
 
+  <%# div dashboard %>
+  <div class="row">
+    <%# demande %>
+    <h2>Mes demandes</h2>
+    <div class="col-md-6">
+      <p>brjibb </p>
+    </div>
+      <%# réservation %>
+    <h2>Mes réservations</h2>
+    <div class="col-md-6">
+      <div class="row">
+        <p>brjibb </p>
+      </div>
+    </div>
+  </div>
 
+
+    <div id="my-profile" class ="mt-5">
+      <h2>Mes profils</h2>
+        <%= current_user.email %>
+          <div class="row">
+            <% @bouchtroues.each do |bouchtroue| %>
+              <% if bouchtroue.user.email == current_user.email %>
+                <div class = "d-flex justify-content-around col-4">
+                  <div class="container py-2 h-100">
+                    <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col">
+                      <div class="card">
+                        <div class="card-img">
+                          <%= cl_image_tag bouchtroue.photo.key, width: 180, crop: :fill %>
+                        </div>
+                      <div class="card-info">
+                        <p class="text-title"><%= bouchtroue.name_profile %></p>
+                        <p class="text-body"><%= bouchtroue.specialty %></p>
+                        <p>Rating </p>
+                          <%= link_to "Modifier", edit_bouchtroue_path(bouchtroue), class: "btn me-1 flex-grow-1" %>
+                    <%# attention modif bug %>
+                          <%= link_to "Suppr", bouchtroue_path(bouchtroue), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn flex-grow-1" %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% else %>
+              <% end %>
+            <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<%# old card %>
   <div id="my-profile" class ="mt-5">
   <h2>Mes profils</h2>
   <%= current_user.email %>
