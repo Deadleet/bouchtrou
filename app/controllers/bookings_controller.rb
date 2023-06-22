@@ -1,38 +1,40 @@
 class BookingsController < ApplicationController
-  def new
-    @bouchtroue = Bouchtroue.find(params[:bouchtroue_id])
-    @booking = Booking.new
-  end
-
-  def edit
-    
-  end
-
-  def update
-  end
-
   def show
+    @booking = Booking.find(params[:id])
   end
 
   def index
   end
 
+  def new
+    @bouchtroue = Bouchtroue.find(params[:bouchtroue_id])
+    @booking = Booking.new
+  end
+
   def create
     @bouchtroue = Bouchtroue.find(params[:bouchtroue_id])
     @booking = Booking.new(booking_params)
+    @booking.user = current_user
     @booking.bouchtroue = @bouchtroue
-    if @booking.save
-      redirect_to bouchtroue_path(@bouchtroue)
-    else
-      @bookings = @bouchtroue.bookings
-      render"bouchtroues/show", status: :unprocessable_entity
-    end
+    @booking.save!
+      if @booking.save
+        redirect_to bouchtroue_path(@bouchtroue)
+      else
+        @bookings = @bouchtroue.bookings
+       render "bouchtroues/show", status: :unprocessable_entity
+      end
+  end
+
+  def edit
+  end
+
+  def update
   end
 
   def destroy
-    @booking = Bouchtroue.find(params[:id])
+    @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to garden_path(@booking.bouchtroue), status: :see_other
+    redirect_to bouchtroue_path(@booking.bouchtroue), status: :see_other
   end
 
   private

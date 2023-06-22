@@ -13,8 +13,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   resources :bouchtroues do
-    resources :bookings, only: [:new, :create, :edit, :update, :show, :index]
+    resources :bookings, only: [:new, :create, :edit, :update, :index]
   end
   # http://127.0.0.1:3000/bouchtroues/new
-
+resources :bookings, only: [:show, :destroy]
 end
