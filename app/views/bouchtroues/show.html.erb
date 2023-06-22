@@ -1,39 +1,46 @@
 <div class = "fixed-top">
 <%= link_to "revenir", bouchtroues_path, class: "btn btn-primary mt-2 mb-2 " %>
 </div>
-<div class = "container text-center">
-<h1>Mon profil : <%= @bouchtroue.name_profile %></h1>
-</div>
 
+<div class = "container text-center">
+  <h1>Mon profil : <%= @bouchtroue.name_profile %></h1>
+  <br>
+    <div class="d-flex">
+      <img src="https://images.pexels.com/photos/66258/staniel-cay-swimming-pig-seagull-fish-66258.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="pdp">
+      <div class="text-start mx-5">
+        <p>Spécialité : <%= @bouchtroue.specialty %></p>
+        <p>Description : <%= @bouchtroue.description %></p>
+        <p>Status : <%= @bouchtroue.status %>.</p>
+        <p> Mes dispo du moment : <%= @bouchtroue.available_start %> au <%= @bouchtroue.available_end %></p>
+        <p> Rating : </p>
+        <p>Prix : <%= @bouchtroue.hour_price %> € / heure</p>
+        <p>Localisation du moment : <%= @bouchtroue.location %></p>
+      </div>
+        <div class="row">
+          <% if @bouchtroue.user.email == current_user.email %>
+            <%= link_to "edit", edit_bouchtroue_path(@bouchtroue), class: "btn" %>
+          <% else %>
+          <% end %>
+          <% if @bouchtroue.user.email != current_user.email %>
+          <%= link_to "reserver", new_bouchtroue_booking_path(@bouchtroue), class: "btn" %>
+          <% else %>
+          <% end %>
+        </div>
+
+      <div class="d-flex">
+        <% if @bouchtroue.status == "libre" %>
+          <div>
+        <% elsif @bouchtroue.status == "occupe"%>
+          <div>
+        <% else %>
+          <div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <%# condition vert ou %>
-<% if @bouchtroue.status == "libre" %>
-  <div class = "card container d-flex justify-content-between bg-success bg-opacity-50">
-<% elsif @bouchtroue.status == "occupe"%>
-  <div class = "card container d-flex justify-content-between bg-danger bg-opacity-50">
-<% else %>
-  <div class = "card container d-flex justify-content-between bg-warning bg-opacity-50">
-<% end %>
 <%#  qi l  condition ne marche pas alors effacer + de commenter le ligne du dessous%>
 <%# <div class = "card container d-flex justify-content-between bg-success"> %>
-  <div>
-    <p>Spécialité : <%= @bouchtroue.specialty %></p>
-    <p>Description : <%= @bouchtroue.description %></p>
-    <p>Status : <%= @bouchtroue.status %>. Mes dispo du moment : <%= @bouchtroue.available_start %> au <%= @bouchtroue.available_end %></p>
-
-    <p>Prix : <%= @bouchtroue.hour_price %> € / heure</p>
-    <p>Localisation du moment : <%= @bouchtroue.location %></p>
-  </div>
-
-  <div>
-    <% if @bouchtroue.user.email == current_user.email %>
-    <%= link_to "edit", edit_bouchtroue_path(@bouchtroue), class: "btn btn-primary mt-2 mb-2" %>
-    <% else %>
-    <% end %>
-    <% if @bouchtroue.user.email != current_user.email %>
-    <%= link_to "reserver", new_bouchtroue_booking_path(@bouchtroue), class: "btn btn-primary mt-2 mb-2" %>
-    <% else %>
-    <% end %>
-  </div>
-</div>
