@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  # get 'bookings/new'
+  # get 'bookings/edit'
+  # get 'bookings/show'
+  # get 'bookings/index'
   # get 'bouchtroues/index'
   # get 'bouchtroues/show'
   # get 'bouchtroues/new'
@@ -8,8 +12,9 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  resources :bouchtroues
-
+  resources :bouchtroues do
+    resources :bookings, only: [:new, :create]
+  end
   # http://127.0.0.1:3000/bouchtroues/new
 
 end
