@@ -26,6 +26,7 @@ class BouchtrouesController < ApplicationController
   end
 
   def destroy
+    @bouchtroue = Bouchtroue.find(params[:id])
     @bouchtroue.destroy
     redirect_to root_path, status: :see_other
   end

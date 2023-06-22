@@ -4,5 +4,8 @@
 <%= @booking.name %>
 <%= @booking.user.email %>
 <%= @booking.bouchtroue.name_profile %>
+<%= @booking.description %>
+<%= @booking.location %>
 
 <%= link_to "Home page", root_path, class: "btn btn-primary mt-2 mb-2 " %>
+<%= link_to "Modifier", edit_booking_path(@booking), class: "btn btn-primary mt-2 mb-2 " %>
