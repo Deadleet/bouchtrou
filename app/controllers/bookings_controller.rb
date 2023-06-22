@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
     @booking.bouchtroue = @bouchtroue
     @booking.save!
       if @booking.save
-        redirect_to bouchtroue_path(@bouchtroue)
+        redirect_to booking_path(@booking)
       else
         @bookings = @bouchtroue.bookings
        render "bouchtroues/show", status: :unprocessable_entity
