@@ -34,11 +34,11 @@
                     <div class="d-flex pt-1">
                       <%# condition %>
                       <% if bouchtroue.status == "libre" %>
-                        <%= link_to "en savoir plus", bouchtroue_path(bouchtroue), class: "btn btn-success mt-2 mb-2" %>
+                        <%= link_to "en savoir plus", bouchtroue_path(bouchtroue), class: "btn-confirm mt-2 mb-2" %>
                       <% elsif bouchtroue.status == "occupe" %>
-                        <%= link_to "en savoir plus", bouchtroue_path(bouchtroue), class: "btn btn-danger mt-2 mb-2" %>
+                        <%= link_to "en savoir plus", bouchtroue_path(bouchtroue), class: "btn-confirm mt-2 mb-2" %>
                       <% else %>
-                        <%= link_to "en savoir plus", bouchtroue_path(bouchtroue), class: "btn btn-warning mt-2 mb-2" %>
+                        <%= link_to "en savoir plus", bouchtroue_path(bouchtroue), class: "btn-confirm mt-2 mb-2" %>
                       <% end %>
                     </div>
                 </div>

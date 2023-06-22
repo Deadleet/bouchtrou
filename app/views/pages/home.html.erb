@@ -3,8 +3,8 @@
     <div class="col-12 col-lg-6">
       <h1>Si tu n'as pas d'amis, tu es au bon endroit !</h1>
       <br>
-      <%= link_to "Trouver un bouchtrou", bouchtroues_path, class: "btn btn-outline-info" %>
-      <%= link_to "Ajouter un bouchtrou", new_bouchtroue_path, class: "btn btn-outline-info" %>
+      <%= link_to "Trouver un bouchtrou", bouchtroues_path, class: "btn" %>
+      <%= link_to "Ajouter un bouchtrou", new_bouchtroue_path, class: "btn" %>
     </div>
   </div>
 
@@ -36,9 +36,9 @@
                         </div>
                       </div>
                       <div class="d-flex pt-1">
-                        <%= link_to "Modifier", edit_bouchtroue_path(bouchtroue), class: "btn btn-outline-primary me-1 flex-grow-1" %>
+                        <%= link_to "Modifier", edit_bouchtroue_path(bouchtroue), class: "btn me-1 flex-grow-1" %>
                         <%# attention modif bug %>
-                        <%= link_to "Suppr", bouchtroue_path(bouchtroue), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-primary flex-grow-1" %>
+                        <%= link_to "Suppr", bouchtroue_path(bouchtroue), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn flex-grow-1" %>
                       </div>
                     </div>
                   </div>
@@ -53,15 +53,5 @@
   <% end %>
 </div>
 
-
-
-
 </div>
-
-
-
-
-
-
-
 </div>
