@@ -1,6 +1,7 @@
 class Bouchtroue < ApplicationRecord
   belongs_to :user
   has_one_attached :photo
+  has_many :bookings
 
 
   validates :name_profile, presence: true
