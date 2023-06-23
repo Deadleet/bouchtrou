@@ -13,7 +13,6 @@
 
   <div id="my-profile" class ="mt-5">
   <h2>Mes profils</h2>
-  <%= current_user.email %>
     <div class="row">
       <% @bouchtroues.each do |bouchtroue| %>
         <% if bouchtroue.user.email == current_user.email %>
@@ -76,10 +75,7 @@
 
   <div id="my-profile" class ="mt-5">
     <h2>Mes reservations</h2>
-    <%= current_user.email %>
   </div>
-
-
 
 <div class="row">
   <% @bookings.each do |booking| %>

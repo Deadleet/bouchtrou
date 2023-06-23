@@ -1,5 +1,9 @@
 <div class = "fixed-top">
-<%= link_to "revenir", bouchtroues_path, class: "btn btn-primary mt-2 mb-2 " %>
+<% if @bouchtroue.user.email == current_user.email %>
+  <%= link_to "revenir", root_path, class: "btn btn-primary mt-2 mb-2 " %>
+<% else %>
+  <%= link_to "revenir", bouchtroues_path, class: "btn btn-primary mt-2 mb-2 " %>
+<% end %>
 </div>
 
 <div class="container">
