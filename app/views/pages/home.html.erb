@@ -59,20 +59,35 @@
 <%# if booking.user.email == current_user.email or %>
 <%# @bouchtrou.user.email %>
 
-<div id="my-profile" class ="mt-5">
-  <h2>Mes reservations</h2>
-  <%= current_user.email %>
-</div>
+  <div id="my-profile" class ="mt-5">
+    <h2>Mes reservations</h2>
+    <%= current_user.email %>
+  </div>
 
 
-    <% @bookings.each do |booking| %>
+
+<div class="row">
+  <% @bookings.each do |booking| %>
     <% if booking.user.email == current_user.email || current_user.id == booking.bouchtroue.user_id %>
-      <%= booking.name %>
-      <%= booking.description %>
-      <%= booking.date_start %>
-      <%= booking.location %>
-      <%= booking.event_time %>
-      <%= booking.event_price %>
+        <div class = "my-2 ml-0 d-flex justify-content-around col-4">
+          <div class="card w-100 h-100" style="border-radius: 15px;">
+            <div class="card-body">
+              <div class="col">
+                  <h5><%= booking.name %></h5>
+                    <p>Description : <%= booking.description %></p>
+                    <p>Date : <%= booking.date_start %></p>
+                    <p>Lieu : <%= booking.location %></p>
+                    <p>Pour une durée de <%= booking.event_time %> h</p>
+              </div>
+            </div>
+            <div class="d-flex pt-1">
+              <%= link_to "Modifier", edit_booking_path(booking), class: "btn me-1 flex-grow-1" %>
+              <%# attention modif bug %>
+              <%= link_to "Suppr", booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn flex-grow-1" %>
+            </div>
+          </div>
+        </div>
     <% else %>
     <% end %>
   <% end %>
+</div>
