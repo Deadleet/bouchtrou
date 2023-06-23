@@ -1,12 +1,19 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
-
-<%= @booking.name %>
-<%= @booking.user.email %>
-<%= @booking.bouchtroue.name_profile %>
-<%= @booking.description %>
-<%= @booking.location %>
+<div class="container">
+<h1>Votre reservation : <%= @booking.name %></h1>
 
 
-<%= link_to "Home page", root_path, class: "btn btn-primary mt-2 mb-2 " %>
-<%= link_to "Modifier", edit_booking_path(@booking), class: "btn btn-primary mt-2 mb-2 " %>
+
+
+  <div class ="d-flex">
+    <p>Organisateur : <%= @booking.user.email %> et Victime : </p>
+    <p>  <%= @booking.bouchtroue.name_profile %>@gmail.com</p>
+  </div>
+
+  <p>Description : <%= @booking.description %></p>
+  <p>Lieux : <%= @booking.location %></p>
+
+
+  <%= link_to "Home page", root_path, class: "btn btn-primary mt-2 mb-2 " %>
+  <%= link_to "Modifier", edit_booking_path(@booking), class: "btn btn-primary mt-2 mb-2 " %>
+  <%= link_to "Suppr", booking_path(@booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn flex-grow-1" %>
+</div>
